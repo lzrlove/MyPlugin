@@ -3,6 +3,8 @@ package com.example.myplugin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
+//                Intent intent = new Intent();
+//                intent.setComponent(new ComponentName("com.example.plugin",
+//                        "com.example.plugin.MainActivity"));
+//                startActivity(intent);
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.example.myplugin;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -43,6 +44,7 @@ public class LoaderUtil {
             System.arraycopy(pluginElements,0,dexElements,hostElements.length,pluginElements.length);
 
             //宿主的dexElements 替换为新的dexElements
+            Log.e("lzr", "load: 替换");
             dexElementsField.set(hostPathList,dexElements);
         } catch (Exception e) {
             e.printStackTrace();
