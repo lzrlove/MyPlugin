@@ -14,7 +14,7 @@ import dalvik.system.PathClassLoader;
  * Create Date 2020/1/9 14:24
  */
 public class LoaderUtil {
-    private final static String apkPath = "/sdcard/plugin-debug.apk";
+    private final static String apkPath = "/sdcard/360/plugin-debug.apk";
     public static void load(Context context){
         try {
             // private final DexPathList pathList;

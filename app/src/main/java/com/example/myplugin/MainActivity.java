@@ -40,10 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                Intent intent = new Intent();
-//                intent.setComponent(new ComponentName("com.example.plugin",
-//                        "com.example.plugin.MainActivity"));
-//                startActivity(intent);
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.example.plugin",
+                        "com.example.plugin.MainActivity"));
+                intent.putExtra("lzr","123");
+                startActivity(intent);
             }
         });
     }

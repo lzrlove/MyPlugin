@@ -11,6 +11,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         LoaderUtil.load(this);
-//        HookUtil.hookAMS();
+        HookUtil.hookAMS();
+        HookUtil.hookHandler();
     }
 }
