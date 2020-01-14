@@ -1,2 +1,2 @@
-include ':app', ':plugin', ':test26'
+include ':app', ':plugin', ':test26', ':test28', ':tests28'
 rootProject.name='MyPlugin'
