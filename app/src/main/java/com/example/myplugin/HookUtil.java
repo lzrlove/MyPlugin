@@ -73,7 +73,6 @@ public class HookUtil {
     }
 
     public static void hookHandler() {
-
         try {
             Class<?> clazz = Class.forName("android.app.ActivityThread");
             Field sCurrentActivityThreadFiled = clazz.getDeclaredField("sCurrentActivityThread");
@@ -101,8 +100,8 @@ public class HookUtil {
                                 //拿到之前保存在代理里面的插件的intent
                                 Intent intent = proxyIntent.getParcelableExtra(TARGET_INTENT);
                                 //替换回来
-//                                proxyIntent.setComponent(intent.getComponent());
-                                intentFiled.set(message.obj, intent);
+                                proxyIntent.setComponent(intent.getComponent());
+//                                intentFiled.set(message.obj, intent);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

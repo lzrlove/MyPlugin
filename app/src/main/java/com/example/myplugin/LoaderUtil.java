@@ -1,10 +1,13 @@
 package com.example.myplugin;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
@@ -14,7 +17,7 @@ import dalvik.system.PathClassLoader;
  * Create Date 2020/1/9 14:24
  */
 public class LoaderUtil {
-    private final static String apkPath = "/sdcard/360/plugin-debug.apk";
+    private final static String apkPath = "/sdcard/1/plugin-debug.apk";
     public static void load(Context context){
         try {
             // private final DexPathList pathList;
@@ -50,5 +53,19 @@ public class LoaderUtil {
             e.printStackTrace();
         }
 
+    }
+
+    public static Resources loadResource(Context context){
+        try {
+            AssetManager assetManager = AssetManager.class.newInstance();
+            Method addAssetPathMethod = assetManager.getClass().getDeclaredMethod("addAssetPath", String.class);
+            addAssetPathMethod.setAccessible(true);
+            addAssetPathMethod.invoke(assetManager,apkPath);
+            Resources resources = context.getResources();
+            return new Resources(assetManager,resources.getDisplayMetrics(),resources.getConfiguration());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
